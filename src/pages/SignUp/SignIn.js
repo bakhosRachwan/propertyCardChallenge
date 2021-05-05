@@ -14,7 +14,7 @@ import firebase from "../../service/firebase";
 const SignIn = () => {
   const classes = useStyles();
   const history = useHistory();
-
+  
   const handleSubmit = useCallback(
     async (event) => {
       event.preventDefault();
@@ -23,7 +23,14 @@ const SignIn = () => {
         await firebase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
+        firebase.firestore().collection('users').where("email", "==", email.value)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+        doc.data().role === "owner"?  history.push(`/owner/${doc.data().id}`) : history.push(`/tenant/${doc.data().id}`);
+        });
+
+        })
       } catch (error) {
         alert(error);
         history.push("/signup");
