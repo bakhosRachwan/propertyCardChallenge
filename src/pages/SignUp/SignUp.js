@@ -29,12 +29,14 @@ const SignUp = () => {
   const handleSubmit = useCallback(
     async (event) => {
       event.preventDefault();
-      const { email, password, role } = event.target.elements;
+      const { email, password, firstName, lastName, role } = event.target.elements;
       try {
         const { user } = await firebase
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
           addUser({
+          firstName: firstName.value,
+          lastName: lastName.value,  
           email: email.value,
           id: user.uid,
           role: role.value,
@@ -62,28 +64,54 @@ const SignUp = () => {
           Sign Up
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="fname"
+                name="firstName"
+                variant="outlined"
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+                autoComplete="lname"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+            </Grid>
           <RadioGroup
             name="role"
           >
