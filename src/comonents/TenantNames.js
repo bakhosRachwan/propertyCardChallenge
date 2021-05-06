@@ -7,15 +7,17 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     layout: {
+      margin:theme.spacing(2),
       boxShadow: "0px 7px 8px -2px rgba(0,0,0,0.25)",
       padding: theme.spacing(2),
-    //   marginLeft: theme.spacing(2),
-    //   marginRight: theme.spacing(2),
-      [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-        width: "80%",
+      [theme.breakpoints.down("sm")]: {
+        width: 300,
         marginLeft: "auto",
         marginRight: "auto",
       },
+      [theme.breakpoints.up("lg")]: {
+        width: 850,
+  },
     },
     cont: {
         height: 400,

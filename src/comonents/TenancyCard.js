@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
+      width: 400,
       marginLeft: "auto",
       marginRight: "auto",
     },
@@ -76,6 +76,7 @@ const TenancyCard = () => {
         .collection("users")
         .doc(tenancyRec.tenantId)
         .update({ record: w });
+      alert("Tenancy Record Sent!")
     }, //eslint-disable-next-line
     [items]
   );
@@ -180,7 +181,6 @@ const TenancyCard = () => {
           </Grid>
         </Grid>
       </form>
-      <Button onClick={() => console.log(items)}>TEST</Button>
     </main>
   );
 };
