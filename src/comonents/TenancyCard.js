@@ -63,6 +63,7 @@ const TenancyCard = () => {
       } catch (error) {
         alert(error);
       }
+      alert("Tenancy Record Sent!")
     },
     //eslint-disable-next-line
     [items]
@@ -76,7 +77,6 @@ const TenancyCard = () => {
         .collection("users")
         .doc(tenancyRec.tenantId)
         .update({ record: w });
-      alert("Tenancy Record Sent!")
     }, //eslint-disable-next-line
     [items]
   );

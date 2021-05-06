@@ -56,7 +56,7 @@ const TenantNames = () => {
   );
   return (
     <Container className={classes.cont}  >
-      <DataGrid className={classes.layout} rows={items} columns={columns} pageSize={5} checkboxSelection />
+      <DataGrid className={classes.layout} rows={items} columns={columns} pageSize={5}  />
     </Container>
   );
 };
