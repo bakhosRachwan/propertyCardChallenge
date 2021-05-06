@@ -27,7 +27,7 @@ const Tenant = () => {
   return (
     <Container>
       <Typography variant="h4">Tenant Page!</Typography>
-      {items === []? <Typography>No Tenancy Records!!</Typography> :items.map(element => <TenantItem key={element.tenantId} item={element} />)}
+      {items === []? <Typography variant="h4">No Tenancy Records!!</Typography> :items.map(element => <TenantItem key={element.tenantId} item={element} />)}
     </Container>
   );
 };
