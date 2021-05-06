@@ -33,7 +33,7 @@ const SignIn = () => {
         })
       } catch (error) {
         alert(error);
-        history.push("/signup");
+        history.push("/");
       }
     },
     //eslint-disable-next-line
@@ -83,7 +83,7 @@ const SignIn = () => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link to="/signup" variant="body2">
+              <Link to="/" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

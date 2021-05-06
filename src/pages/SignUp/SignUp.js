@@ -40,6 +40,7 @@ const SignUp = () => {
           email: email.value,
           id: user.uid,
           role: role.value,
+          record: []
         });
         history.push(`/${role.value}/${user.uid}`);
       } catch (error) {
